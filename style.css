@@ -1,0 +1,71 @@
+/* Header fijo delgado + logo grande sin agrandar el menú */
+body {margin:0; font-family:'Segoe UI',sans-serif; color:#222; background:#fff;}
+
+/* ===== HEADER (alto fijo) ===== */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;                 /* <-- header delgado y fijo */
+  padding:0 60px;              /* sin padding vertical para que no crezca */
+  background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05);
+}
+
+/* Contenedor del logo: reserva espacio a la izquierda y deja que la imagen "se salga" */
+.logo{ display:flex; align-items:center; height:64px; position:relative; padding-left:130px; text-decoration:none; }
+.logo img{
+  position:absolute; left:0; top:50%; transform:translateY(-50%);
+  height:250px; width:auto;               /* <-- LOGO GRANDE */
+  pointer-events:none;
+}
+.logo span{ font-weight:800; font-size:22px; color:#1e88e5; }
+
+/* Menú: misma altura del header y centrado vertical sin crecer */
+.main-nav{ display:flex; gap:18px; height:64px; }
+.main-nav a{
+  display:flex; align-items:center;       /* centra el texto sin dependencias de línea */
+  padding:0 12px; text-decoration:none; color:#333; font-weight:500;
+}
+.main-nav a.active, .main-nav a:hover{ color:#1e88e5; }
+
+.nav-toggle{ display:none; }
+
+/* ===== HERO (fondo a pantalla completa detrás del texto) ===== */
+.hero{
+  position:relative; height:100vh;
+  background:url('assets/sensors-background.png') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center; text-align:center; color:#fff;
+}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.48);} /* oscurecido sutil */
+.hero-content{ position:relative; z-index:1; max-width:760px; padding:0 16px; }
+.hero h1{ font-size:54px; margin:0 0 10px; font-weight:900 }
+.hero h3{ margin:0 0 18px; font-weight:600 }
+.hero p{ margin:0 0 24px; line-height:1.5 }
+.btn-primary{ background:#1e88e5; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:700 }
+.btn-primary:hover{ background:#166dc0 }
+
+/* ===== SECCIONES ===== */
+section {padding:80px 10%; text-align:center;}
+.cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:40px;}
+.card {background:#fff; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,.05); padding:25px; text-align:left;}
+.roi {background:#e8f1fd; padding:40px; border-radius:10px; margin-top:60px;}
+.roi-stats{display:flex; justify-content:space-around; flex-wrap:wrap; gap:14px;}
+.quienes{background:#fff;}
+.mision-vision{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-top:30px;}
+.equipo{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-top:40px;}
+.miembro{background:#f5f8ff;padding:20px;border-radius:10px;width:250px;}
+.impacto{background:#e8f1fd;padding:30px;border-radius:10px;margin-top:50px;}
+.contacto{background:#fff;}
+.info-contacto{display:flex;justify-content:space-around;flex-wrap:wrap;margin:40px 0;}
+form{display:flex;flex-direction:column;gap:15px;max-width:600px;margin:auto;}
+input,textarea{padding:12px;border:1px solid #ccc;border-radius:6px;}
+button{background:#1e88e5;color:#fff;border:none;padding:12px;border-radius:6px;cursor:pointer;}
+.site-footer{background:#1e88e5;color:#fff;text-align:center;padding:15px;}
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .site-header{ height:56px; padding:0 22px; }
+  .logo{ height:56px; padding-left:90px; }
+  .logo img{ height:80px; }
+  .main-nav{ height:56px; gap:10px; }
+  .hero h1{ font-size:36px; }
+}
